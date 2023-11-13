@@ -2,8 +2,10 @@ name: "Terraform action"
 on:
   push:
     branches:
-      - main
-  pull_request:
+      - '**'
+      - '!main'
+  paths-ignore:
+    - 'self-host-runner-ECS/**'
 permissions:
       id-token: write # This is required for aws oidc connection
       contents: read # This is required for actions/checkout
@@ -13,11 +15,11 @@ env:
   AWS_REGION: ${{ secrets.AWS_REGION }}
 jobs:
   deploy:
-    runs-on: ubuntu-latest
-    defaults:
-      run:
-        shell: bash
-        working-directory: .
+    runs-on: [ self-hosted, aws-runner ]
+      defaults:
+        run:
+          shell: bash
+          working-directory: AWS
     steps:
       - name: Git checkout
         uses: actions/checkout@v3
