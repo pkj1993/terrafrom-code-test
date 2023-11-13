@@ -227,7 +227,7 @@ resource "aws_ecs_task_definition" "task_definition" {
   [
     {
       "name": "ecs-runner",
-      "image": "747632300909.dkr.ecr.ap-northeast-1.amazonaws.com/ecs-runner:latest",
+      "image": "508656221602.dkr.ecr.ap-south-1.amazonaws.com/ecs-runner:latest",
       "cpu": 256,
       "memory": 512,
       "essential": true,
