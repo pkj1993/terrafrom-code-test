@@ -102,3 +102,13 @@ resource "aws_route_table_association" "assoc_2" {
   subnet_id      = aws_subnet.private_subnet.id
   route_table_id = aws_route_table.route_table_private.id
 }
+
+# ECR repository
+resource "aws_ecr_repository" "ECR_repository" {
+  name                 = var.PREFIX
+  image_tag_mutability = "MUTABLE"
+
+  image_scanning_configuration {
+    scan_on_push = true
+  }
+}
