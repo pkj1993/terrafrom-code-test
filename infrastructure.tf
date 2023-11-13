@@ -116,8 +116,11 @@ resource "aws_ecr_repository" "ECR_repository" {
 # ECS cluster
 resource "aws_ecs_cluster" "ecs_cluster" {
   name = "${var.PREFIX}-cluster"
-  capacity_providers = [
-    "FARGATE"]
+  launch_type     = "FARGATE"
+
+  capacity_provider_strategy {
+    capacity_provider = "FARGATE"
+  }
   setting {
     name = "containerInsights"
     value = "enabled"
