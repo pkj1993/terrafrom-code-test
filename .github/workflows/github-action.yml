@@ -3,8 +3,6 @@ on:
   push:
     branches:
       - main
-  paths-ignore:
-    - 'self-host-runner-ECS/**'
   pull_request:
 permissions:
       id-token: write # This is required for aws oidc connection
@@ -15,11 +13,11 @@ env:
   AWS_REGION: ${{ secrets.AWS_REGION }}
 jobs:
   deploy:
-    runs-on: [ self-hosted, aws-runner ]
-      defaults:
-        run:
-          shell: bash
-          working-directory: AWS
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        shell: bash
+        working-directory: .
     steps:
       - name: Git checkout
         uses: actions/checkout@v3
