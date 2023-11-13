@@ -115,3 +115,7 @@ jobs:
         run: |
            chmod 777 ./tf_apply.sh
            ./tf_apply.sh
+
+      - name: Login to registry
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 508656221602.dkr.ecr.ap-south-1.amazonaws.com
