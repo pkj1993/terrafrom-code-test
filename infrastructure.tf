@@ -116,8 +116,7 @@ resource "aws_ecr_repository" "ECR_repository" {
 # ECS cluster
 resource "aws_ecs_cluster" "ecs_cluster" {
   name = "${var.PREFIX}-cluster"
-  capacity_providers = [
-    "FARGATE"]
+
   setting {
     name = "containerInsights"
     value = "enabled"

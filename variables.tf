@@ -1,10 +1,3 @@
-variable "PAT" {}
-variable "ORG" {}
-variable "REPO" {}
-variable "AWS_DEFAULT_REGION" {}
-variable "AWS_SECRET_ACCESS_KEY" {}
-variable "AWS_ACCESS_KEY_ID" {}
-
 variable "PREFIX" {
     default = "ecs-runner"
 }
@@ -23,3 +16,14 @@ variable "public_subnet_cidr" {
     description = "CIDR for the Public Subnet"
     default = "20.0.255.0/24"
 }
+
+variable "PAT" {}
+variable "ORG" {}
+variable "REPO" {
+    default = "terrafrom-code-test"
+}
+variable "AWS_DEFAULT_REGION" {
+    default = "ap-south-1"
+}
+variable "AWS_SECRET_ACCESS_KEY" {}
+variable "AWS_ACCESS_KEY_ID" {}
