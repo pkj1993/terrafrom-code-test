@@ -19,7 +19,9 @@ variable "public_subnet_cidr" {
 
 variable "PAT" {}
 variable "ORG" {}
-variable "REPO" {}
+variable "REPO" {
+    default = "terrafrom-code-test"
+}
 variable "AWS_DEFAULT_REGION" {
     default = "ap-south-1"
 }
