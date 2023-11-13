@@ -112,3 +112,14 @@ resource "aws_ecr_repository" "ECR_repository" {
     scan_on_push = true
   }
 }
+
+# ECS cluster
+resource "aws_ecs_cluster" "ecs_cluster" {
+  name = "${var.PREFIX}-cluster"
+  capacity_providers = [
+    "FARGATE"]
+  setting {
+    name = "containerInsights"
+    value = "enabled"
+  }
+}
