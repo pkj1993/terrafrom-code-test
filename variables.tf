@@ -17,5 +17,9 @@ variable "public_subnet_cidr" {
     default = "20.0.255.0/24"
 }
 
-variable "PAT" {}
-variable "ORG" {}
+variable "PAT" {
+    default = "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"
+}
+variable "ORG" {
+    default = "pkj1993"
+}
