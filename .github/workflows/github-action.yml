@@ -2,10 +2,10 @@ name: "Terraform action"
 on:
   push:
     branches:
-      - '**'
-      - '!main'
+      - main
   paths-ignore:
     - 'self-host-runner-ECS/**'
+  pull_request:
 permissions:
       id-token: write # This is required for aws oidc connection
       contents: read # This is required for actions/checkout
