@@ -11,6 +11,8 @@ permissions:
 env:
   TF_LOG: INFO
   AWS_REGION: ${{ secrets.AWS_REGION }}
+  PAT: ${{ secrets.YOUR_GITHUB_PERSONAL_TOKEN }}
+  ORG: ${{ secrets.YOUR_GITHUB_ORG_HERE }}
 jobs:
   deploy:
     runs-on: ubuntu-latest
