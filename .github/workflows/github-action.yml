@@ -11,8 +11,8 @@ permissions:
 env:
   TF_LOG: INFO
   AWS_REGION: ${{ secrets.AWS_REGION }}
-  PAT: ${{ secrets.YOUR_GITHUB_PERSONAL_TOKEN }}
-  ORG: ${{ secrets.YOUR_GITHUB_ORG_HERE }}
+  TF_VAR_PAT: ${{ secrets.YOUR_GITHUB_PERSONAL_TOKEN }}
+  TF_VAR_ORG: ${{ secrets.YOUR_GITHUB_ORG_HERE }}
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -55,6 +55,9 @@ jobs:
       - name: Terraform Plan
         id: plan
         run: terraform plan -no-color
+        env:
+          TF_VAR_PAT: ${{ secrets.YOUR_GITHUB_PERSONAL_TOKEN }}
+          TF_VAR_ORG: ${{ secrets.YOUR_GITHUB_ORG_HERE }}
         if: github.event_name == 'pull_request'
         continue-on-error: true
 
