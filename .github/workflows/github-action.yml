@@ -14,7 +14,7 @@ env:
   TF_VAR_PAT: ${{ secrets.YOUR_GITHUB_PERSONAL_TOKEN }}
   TF_VAR_ORG: ${{ secrets.YOUR_GITHUB_ORG_HERE }}
   TF_VAR_REPO: ${{ secrets.YOUR_GITHUB_REPO_NAME_HERE }}
-  TF_AWS_DEFAULT_REGION: ${{ secrets.YOUR_AWS_DEFAULT_REGION_HERE }}
+  #TF_AWS_DEFAULT_REGION: ${{ secrets.YOUR_AWS_DEFAULT_REGION_HERE }}
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -61,7 +61,7 @@ jobs:
           TF_VAR_PAT: ${{ secrets.YOUR_GITHUB_PERSONAL_TOKEN }}
           TF_VAR_ORG: ${{ secrets.YOUR_GITHUB_ORG_HERE }}
           TF_VAR_REPO: ${{ secrets.YOUR_GITHUB_REPO_NAME_HERE }}
-          TF_AWS_DEFAULT_REGION: ${{ secrets.YOUR_AWS_DEFAULT_REGION_HERE }}
+         # TF_AWS_DEFAULT_REGION: ${{ secrets.YOUR_AWS_DEFAULT_REGION_HERE }}
         if: github.event_name == 'pull_request'
         continue-on-error: true
 
