@@ -19,3 +19,4 @@ variable "public_subnet_cidr" {
 
 variable "PAT" {}
 variable "ORG" {}
+variable "REPO" {}

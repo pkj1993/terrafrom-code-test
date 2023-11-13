@@ -13,6 +13,7 @@ env:
   AWS_REGION: ${{ secrets.AWS_REGION }}
   TF_VAR_PAT: ${{ secrets.YOUR_GITHUB_PERSONAL_TOKEN }}
   TF_VAR_ORG: ${{ secrets.YOUR_GITHUB_ORG_HERE }}
+  TF_VAR_REPO: ${{ secrets.YOUR_GITHUB_REPO_NAME_HERE }}
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -58,6 +59,7 @@ jobs:
         env:
           TF_VAR_PAT: ${{ secrets.YOUR_GITHUB_PERSONAL_TOKEN }}
           TF_VAR_ORG: ${{ secrets.YOUR_GITHUB_ORG_HERE }}
+          TF_VAR_REPO: ${{ secrets.YOUR_GITHUB_REPO_NAME_HERE }}
         if: github.event_name == 'pull_request'
         continue-on-error: true
 

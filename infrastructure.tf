@@ -173,3 +173,12 @@ resource "aws_secretsmanager_secret_version" "ORG_version" {
   secret_id     = aws_secretsmanager_secret.ORG.id
   secret_string = var.ORG
 }
+
+resource "aws_secretsmanager_secret" "REPO" {
+  name = "${var.PREFIX}-REPO"
+}
+
+resource "aws_secretsmanager_secret_version" "REPO_version" {
+  secret_id     = aws_secretsmanager_secret.REPO.id
+  secret_string = var.REPO
+}
