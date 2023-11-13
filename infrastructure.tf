@@ -191,3 +191,21 @@ resource "aws_secretsmanager_secret_version" "AWS_DEFAULT_REGION_version" {
   secret_id     = aws_secretsmanager_secret.AWS_DEFAULT_REGION.id
   secret_string = var.AWS_DEFAULT_REGION
 }
+
+resource "aws_secretsmanager_secret" "AWS_SECRET_ACCESS_KEY" {
+  name = "${var.PREFIX}-AWS_SECRET_ACCESS_KEY"
+}
+
+resource "aws_secretsmanager_secret_version" "AWS_SECRET_ACCESS_KEY_version" {
+  secret_id     = aws_secretsmanager_secret.AWS_SECRET_ACCESS_KEY.id
+  secret_string = var.AWS_SECRET_ACCESS_KEY
+}
+
+resource "aws_secretsmanager_secret" "AWS_ACCESS_KEY_ID" {
+  name = "${var.PREFIX}-AWS_ACCESS_KEY_ID"
+}
+
+resource "aws_secretsmanager_secret_version" "AWS_ACCESS_KEY_ID_version" {
+  secret_id     = aws_secretsmanager_secret.AWS_ACCESS_KEY_ID.id
+  secret_string = var.AWS_ACCESS_KEY_ID
+}
