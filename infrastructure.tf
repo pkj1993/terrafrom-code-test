@@ -182,3 +182,12 @@ resource "aws_secretsmanager_secret_version" "REPO_version" {
   secret_id     = aws_secretsmanager_secret.REPO.id
   secret_string = var.REPO
 }
+
+resource "aws_secretsmanager_secret" "AWS_DEFAULT_REGION" {
+  name = "${var.PREFIX}-AWS_DEFAULT_REGION"
+}
+
+resource "aws_secretsmanager_secret_version" "AWS_DEFAULT_REGION_version" {
+  secret_id     = aws_secretsmanager_secret.AWS_DEFAULT_REGION.id
+  secret_string = var.AWS_DEFAULT_REGION
+}
