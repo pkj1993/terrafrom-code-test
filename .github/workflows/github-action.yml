@@ -112,4 +112,6 @@ jobs:
 
       - name: Terraform Apply
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        run: ./tf_apply.sh
+        run: |
+           chmod 777 ./tf_apply.sh
+           ./tf_apply.sh
