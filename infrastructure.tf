@@ -162,7 +162,7 @@ resource "aws_secretsmanager_secret" "PAT" {
 
 resource "aws_secretsmanager_secret_version" "PAT_version" {
   secret_id     = aws_secretsmanager_secret.PAT.id
-  secret_binary = filebase64(var.PAT)
+  secret_string = var.PAT
 }
 
 resource "aws_secretsmanager_secret" "ORG" {
