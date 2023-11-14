@@ -1,4 +1,4 @@
-name: "Terraform action"
+name: "Terraform destory"
 on:
   workflow_dispatch:
 
