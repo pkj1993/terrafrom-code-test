@@ -240,7 +240,7 @@ resource "aws_ecs_task_definition" "task_definition" {
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-            "awslogs-region" : "ap-northeast-1",
+            "awslogs-region" : "ap-south-1",
             "awslogs-group" : "/ecs/${var.PREFIX}-task-def",
             "awslogs-stream-prefix" : "ecs"
         }
@@ -316,8 +316,8 @@ resource "aws_ecs_service" "ecs_service" {
 
 # Autoscaling
 resource "aws_appautoscaling_target" "dev_to_target" {
-  max_capacity = 2
-  min_capacity = 1
+  max_capacity = 3
+  min_capacity = 2
   resource_id = "service/${aws_ecs_cluster.ecs_cluster.name}/${aws_ecs_service.ecs_service.name}"
   scalable_dimension = "ecs:service:DesiredCount"
   service_namespace = "ecs"
