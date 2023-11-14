@@ -240,7 +240,7 @@ resource "aws_ecs_task_definition" "task_definition" {
       "logConfiguration": {
         "logDriver": "awslogs",
         "options": {
-            "awslogs-region" : "ap-northeast-1",
+            "awslogs-region" : "ap-south-1",
             "awslogs-group" : "/ecs/${var.PREFIX}-task-def",
             "awslogs-stream-prefix" : "ecs"
         }
