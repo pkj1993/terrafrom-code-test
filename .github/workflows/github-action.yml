@@ -137,8 +137,8 @@ jobs:
 
       - name: Push the container to ECR
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
-        #run: docker push 508656221602.dkr.ecr.ap-south-1.amazonaws.com/ecs-runner:latest
-        run: docker push $AWS_ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com/ecs-runner
+        run: docker push 508656221602.dkr.ecr.ap-south-1.amazonaws.com/ecs-runner:latest
+        #run: docker push $AWS_ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com/ecs-runner
 
       - name: Start the runner
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
