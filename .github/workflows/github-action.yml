@@ -124,3 +124,22 @@ jobs:
       - name: Login to registry
         if: github.ref == 'refs/heads/main' && github.event_name == 'push'
         run: aws ecr get-login-password --region ap-south-1 | docker login --username AWS --password-stdin 508656221602.dkr.ecr.ap-south-1.amazonaws.com
+
+      - name: Create a container
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: docker build -f Dockerfile -q -t ecs-runner .
+
+      - name: Tag a container
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        # run: docker tag ecs-runner:latest 508656221602.dkr.ecr.ap-south-1.amazonaws.com/ecs-runner:latest
+        run: docker tag ecs-runner $AWS_ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com/ecs-runner
+
+
+      - name: Push the container to ECR
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        #run: docker push 508656221602.dkr.ecr.ap-south-1.amazonaws.com/ecs-runner:latest
+        run: docker push $AWS_ACCOUNT_ID.dkr.ecr.ap-south-1.amazonaws.com/ecs-runner
+
+      - name: Start the runner
+        if: github.ref == 'refs/heads/main' && github.event_name == 'push'
+        run: aws ecs update-service --cluster ecs-runner-cluster --service ecs-runner-ecs-service --force-new-deployment
